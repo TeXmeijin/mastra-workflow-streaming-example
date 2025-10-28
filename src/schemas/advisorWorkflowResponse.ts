@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const AdvisorWorkflowResponseSchema = z.object({
+export const CounselorWorkflowResponseSchema = z.object({
   response: z.string().optional().describe(`# about
   response for user's prompt.
   
@@ -43,4 +43,4 @@ export const AdvisorWorkflowResponseSchema = z.object({
     .describe("リサーチ結果の共有"),
 });
 
-export type AdvisorWorkflowResponse = z.infer<typeof AdvisorWorkflowResponseSchema>;
+export type AdvisorWorkflowResponse = z.infer<typeof CounselorWorkflowResponseSchema>;

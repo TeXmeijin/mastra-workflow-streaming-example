@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
 import { mastra } from "@/mastra/index";
-import { AdvisorWorkflowResponseSchema } from "@/schemas/advisorWorkflowResponse";
+import { CounselorWorkflowResponseSchema } from "@/schemas/advisorWorkflowResponse";
 import { ChunkType } from "@mastra/core";
 
 const encoder = new TextEncoder();
@@ -143,7 +143,7 @@ export async function POST(req: NextRequest) {
           return;
         }
 
-        const parsed = AdvisorWorkflowResponseSchema.safeParse(result.result);
+        const parsed = CounselorWorkflowResponseSchema.safeParse(result.result);
         if (!parsed.success) {
           send({
             event: "error",

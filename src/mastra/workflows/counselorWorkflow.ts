@@ -1,7 +1,7 @@
 import { createStep, createWorkflow } from "@mastra/core/workflows";
 import { z } from "zod";
 
-import { AdvisorWorkflowResponseSchema } from "@/schemas/advisorWorkflowResponse";
+import { CounselorWorkflowResponseSchema } from "@/schemas/advisorWorkflowResponse";
 import { DeepResearchResultSchema } from "@/schemas/deepResearch";
 
 export const LearnerUnderstandingSchema = z.object({
@@ -195,7 +195,7 @@ const synthesizeAdvisorPlanStep = createStep({
     understanding: LearnerUnderstandingSchema,
     researchFindings: DeepResearchResultSchema,
   }),
-  outputSchema: AdvisorWorkflowResponseSchema,
+  outputSchema: CounselorWorkflowResponseSchema,
   execute: async ({ inputData, mastra, writer }) => {
     const synthesisAgent = mastra.getAgent("advisorSynthesisAgent");
 
@@ -216,7 +216,7 @@ const synthesizeAdvisorPlanStep = createStep({
         },
       ],
       {
-        output: AdvisorWorkflowResponseSchema,
+        output: CounselorWorkflowResponseSchema,
       },
     );
 
@@ -226,7 +226,7 @@ const synthesizeAdvisorPlanStep = createStep({
     // Get the final structured object
     const finalObject = stream.object;
     const parsedFromObject = safeParseSchema(
-      AdvisorWorkflowResponseSchema,
+      CounselorWorkflowResponseSchema,
       finalObject,
     );
 
@@ -245,7 +245,7 @@ export const counselorWorkflow = createWorkflow({
   inputSchema: z.object({
     message: z.string(),
   }),
-  outputSchema: AdvisorWorkflowResponseSchema,
+  outputSchema: CounselorWorkflowResponseSchema,
 })
   .then(gatherLearnerUnderstandingStep)
   .then(performDeepResearchStep)

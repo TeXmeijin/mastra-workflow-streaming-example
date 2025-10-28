@@ -6,7 +6,7 @@ import { parsePartialJson } from "@ai-sdk/ui-utils";
 
 import {
   AdvisorWorkflowResponse,
-  AdvisorWorkflowResponseSchema,
+  CounselorWorkflowResponseSchema,
 } from "@/schemas/advisorWorkflowResponse";
 import { type LearnerUnderstanding } from "@/schemas/learnerUnderstanding";
 import { DeepResearchResultSchema } from "@/schemas/deepResearch";
@@ -42,7 +42,7 @@ export default function Home() {
     >;
     "perform-deep-research": Process<z.infer<typeof DeepResearchResultSchema>>;
     "synthesize-advisor-plan": Process<
-      z.infer<typeof AdvisorWorkflowResponseSchema>
+      z.infer<typeof CounselorWorkflowResponseSchema>
     >;
     "web-search": Process<{ query: string; isProcessing: boolean }>;
   };
