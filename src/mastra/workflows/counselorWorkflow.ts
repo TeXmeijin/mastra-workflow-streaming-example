@@ -69,27 +69,12 @@ const gatherLearnerUnderstandingStep = createStep({
 
     const response = await stream.object;
 
-    const parsedFromObject = safeParseSchema(
+    const understanding = safeParseSchema(
       LearnerUnderstandingSchema,
       response,
     );
 
-    const understanding = parsedFromObject ?? {
-      learnerProfile: {
-        identity: { name: "不明な学習者", stage: "不明な学習段階" },
-      },
-      weakness: ["制約情報は取得できませんでした。"],
-      strengths: ["強みに関する情報は確認できませんでした。"],
-      guardianSignals: ["保護者からのシグナルは取得できませんでした。"],
-      recommendedResearchQueries: [
-        {
-          query: "ハイコミットな高校生を支援する指導フレームワーク",
-          rationale:
-            "学習者の詳細が不足しているため、一般的な支援策の調査が求められます。",
-          focusArea: "general",
-        },
-      ],
-    };
+    if (!understanding) throw new Error('Learner understanding is not valid');
 
     return {
       inquiry: inputData.message,
