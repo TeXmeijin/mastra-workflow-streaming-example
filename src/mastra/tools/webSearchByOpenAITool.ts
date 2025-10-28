@@ -6,7 +6,7 @@ import { requestOpenAiWebSearchStructured } from "@/utils/parseOpenAiWebSearchRe
 export const webSearchByOpenAITool = createTool({
   id: "search-web-content-openai",
   description:
-    "FirecrawlのAPI Creditが枯渇しているときのみ利用します。a live web search and return the top results that can be followed up by downstream tools.",
+    "a live web search and return the top results that can be followed up by downstream tools.",
   inputSchema: z.object({
     query: z.string().describe("The search query to run"),
   }),
