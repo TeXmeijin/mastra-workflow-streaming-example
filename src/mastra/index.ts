@@ -6,7 +6,7 @@ import { LibSQLStore } from "@mastra/libsql";
 import { researchAgent } from "./agents/researchAgent";
 import { userUnderstandingAgent } from "./agents/userUnderstandingAgent";
 import { advisorSynthesisAgent } from "./agents/advisorSynthesisAgent";
-import { advisorWorkflow } from "./workflows/advisorWorkflow";
+import { counselorWorkflow } from "./workflows/counselorWorkflow";
 
 function createMastraInstance() {
   try {
@@ -21,7 +21,7 @@ function createMastraInstance() {
       advisorSynthesisAgent,
     },
     workflows: {
-      advisorWorkflow,
+      counselorWorkflow,
     },
     storage: new LibSQLStore({
       // stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db

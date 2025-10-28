@@ -81,7 +81,7 @@ This technical study addresses workflow streaming challenges:
 | Component | File Path | Responsibility |
 |-----------|-----------|----------------|
 | Workflow Definition | `src/mastra/workflows/advisorWorkflow.ts` | Three-step DAG with schema-validated I/O |
-| Streaming Endpoint | `src/app/api/teacher-workflow/route.ts` | NDJSON stream generation from workflow events |
+| Streaming Endpoint | `src/app/api/counselor-workflow/route.ts` | NDJSON stream generation from workflow events |
 | Frontend UI | `src/app/page.tsx` | Progressive rendering with partial JSON parsing |
 | Shared Schemas | `src/schemas/*.ts` | Type-safe contracts across layers |
 
@@ -379,7 +379,7 @@ The implementation serves as a reference architecture for educational technology
 
 **Repository Structure Summary**:
 - **Workflow**: `src/mastra/workflows/advisorWorkflow.ts` (3-step DAG)
-- **Streaming API**: `src/app/api/teacher-workflow/route.ts` (NDJSON encoder)
+- **Streaming API**: `src/app/api/counselor-workflow/route.ts` (NDJSON encoder)
 - **Frontend**: `src/app/page.tsx` (Progressive renderer)
 - **Schemas**: `src/schemas/` (Shared type definitions)
 

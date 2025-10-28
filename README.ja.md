@@ -79,7 +79,7 @@
 | コンポーネント | ファイルパス | 責務 |
 |-----------|-----------|----------------|
 | ワークフロー定義 | `src/mastra/workflows/advisorWorkflow.ts` | スキーマ検証されたI/Oを持つ3ステップDAG |
-| ストリーミングエンドポイント | `src/app/api/teacher-workflow/route.ts` | ワークフローイベントからのNDJSONストリーム生成 |
+| ストリーミングエンドポイント | `src/app/api/counselor-workflow/route.ts` | ワークフローイベントからのNDJSONストリーム生成 |
 | フロントエンドUI | `src/app/page.tsx` | 部分的JSONパースによるプログレッシブレンダリング |
 | 共有スキーマ | `src/schemas/*.ts` | レイヤー間の型安全なコントラクト |
 
@@ -378,7 +378,7 @@ Mastra v0.20.00時点で、`streamVNext()`と`generateVNext()`はそれぞれ`st
 
 **リポジトリ構造サマリー**:
 - **ワークフロー**: `src/mastra/workflows/advisorWorkflow.ts` (3ステップDAG)
-- **ストリーミングAPI**: `src/app/api/teacher-workflow/route.ts` (NDJSONエンコーダー)
+- **ストリーミングAPI**: `src/app/api/counselor-workflow/route.ts` (NDJSONエンコーダー)
 - **フロントエンド**: `src/app/page.tsx` (プログレッシブレンダラー)
 - **スキーマ**: `src/schemas/` (共有型定義)
 

@@ -240,8 +240,8 @@ const synthesizeAdvisorPlanStep = createStep({
   },
 });
 
-export const advisorWorkflow = createWorkflow({
-  id: "advisor-workflow",
+export const counselorWorkflow = createWorkflow({
+  id: "counselor-workflow",
   inputSchema: z.object({
     message: z.string(),
   }),

@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
       }
 
       try {
-        const workflow = mastra.getWorkflow("advisorWorkflow");
+        const workflow = mastra.getWorkflow("counselorWorkflow");
         const run = await workflow.createRunAsync();
         const workflowStream = run.streamVNext({
           inputData: { message },

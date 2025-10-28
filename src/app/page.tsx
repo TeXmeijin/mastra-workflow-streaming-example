@@ -13,11 +13,11 @@ import { DeepResearchResultSchema } from "@/schemas/deepResearch";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { z } from "zod";
-import { StreamEvent } from "@/app/api/teacher-workflow/route";
+import { StreamEvent } from "@/app/api/counselor-workflow/route";
 import { DeepPartial } from "ai";
 import { assertNever } from "@/utils/assertNever";
 import { JSONObject } from "@ai-sdk/provider";
-import { LearnerUnderstandingSchema } from "@/mastra/workflows/advisorWorkflow";
+import { LearnerUnderstandingSchema } from "mastra/workflows/counselorWorkflow";
 
 export default function Home() {
   // ユーザーが現在入力しているプロンプト。送信のたびにクリアする
@@ -145,7 +145,7 @@ export default function Home() {
       agentAbortControllerRef.current = controller;
 
       try {
-        const response = await fetch("/api/teacher-workflow", {
+        const response = await fetch("/api/counselor-workflow", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: agentSendingMessage }),
